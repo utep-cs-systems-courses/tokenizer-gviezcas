@@ -17,3 +17,22 @@ int non_space_char(char c)
     }
   return 0;
 }
+
+int count_words(char *c)
+{
+  int counter = 0;
+  
+  while(*c != '\0')
+    {
+      if(space_char(*c))
+	{
+	  counter++;
+	  c++;
+	}
+      else if(non_space_char(*c))
+	{
+	  c++;
+	}
+    }
+  return counter;
+}
