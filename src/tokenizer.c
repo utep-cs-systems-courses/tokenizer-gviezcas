@@ -33,6 +33,21 @@ char *word_start(char *c)
     }
 }
 
+char *word_end(char *c)
+{
+  while(*c != '\0')
+    {
+      if(non_space_char(*c))
+	{
+	  c++;
+	}
+      else
+	{
+	  return c;
+	}
+    }
+}
+
 int count_words(char *c)
 {
   int counter = 0;
