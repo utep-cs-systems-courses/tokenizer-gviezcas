@@ -12,4 +12,6 @@ int main()
   printf("$");
   fgets(userInput, MAX_SIZE, stdin);
   puts(userInput);
+  char *start = word_start(userInput);
+  printf("%c\n", start[0]);
 }

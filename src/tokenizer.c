@@ -31,6 +31,7 @@ char *word_start(char *c)
 	  return c;
 	}
     }
+  return c;
 }
 
 char *word_end(char *c)
@@ -46,6 +47,7 @@ char *word_end(char *c)
 	  return c;
 	}
     }
+  return c;
 }
 
 int count_words(char *c)
