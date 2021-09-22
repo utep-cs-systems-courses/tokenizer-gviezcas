@@ -73,10 +73,44 @@ int count_words(char *c)
 char *copy_str(char *inStr, short len)
 {
   char *copy = malloc(len * sizeof(char));
+  short i = 0;
   
-  for(short i = 0; i < len; i++)
+  for(; i < len; i++)
     {
       copy[i] = inStr[i];
     }
+  copy[i] = '\0';
   return copy;
+}
+
+int count_letters(char* str)
+{
+  int counter = 0;
+  str = word_start(str);
+
+  while(non_space_char(*str))
+    {
+      counter++;
+      str++;
+    }
+  return counter;
+}
+
+char **tokenize(char* str)
+{
+  char **tokenized_string = malloc(count_words(str)* sizeof(char));
+  int i = 1;
+  while(*str != '\0')
+    {
+      str = word_start(str);
+      *tokenized_string = copy_str(str, count_letters(str));
+      str = word_end(str);
+      printf("[%d]", i);
+      puts(*tokenized_string);
+      tokenized_string++;
+      str = word_start(str);
+      i++;
+    }
+  
+  return tokenized_string;
 }

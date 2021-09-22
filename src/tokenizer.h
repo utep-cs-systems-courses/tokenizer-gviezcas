@@ -59,4 +59,6 @@ char *get_token(char **tokens, int id);
 /* Frees all tokens and the vector containing them. */
 void free_tokens(char **tokens);
 
+int count_letters(char* str);
+
 #endif
