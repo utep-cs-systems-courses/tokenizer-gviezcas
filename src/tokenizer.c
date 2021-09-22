@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int space_char(char c)
 {
@@ -67,4 +68,15 @@ int count_words(char *c)
 	}
     }
   return counter;
+}
+
+char *copy_str(char *inStr, short len)
+{
+  char *copy = malloc(len * sizeof(char));
+  
+  for(short i = 0; i < len; i++)
+    {
+      copy[i] = inStr[i];
+    }
+  return copy;
 }
