@@ -13,8 +13,10 @@ int main()
       printf("Please enter the item to tokenize:(Enter q to exit)\n");
       printf("$ ");
       fgets(userInput, MAX_SIZE, stdin);
-      char **tokenized = malloc(MAX_SIZE * sizeof(char));
+      printf("\n");
+      char **tokenized = malloc(MAX_SIZE * sizeof(char*));
       tokenized = tokenize(userInput);
+      //print_tokens(tokenized);
       printf("\n");
     }
   printf("Goodbye.\n");

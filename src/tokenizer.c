@@ -72,7 +72,7 @@ int count_words(char *c)
 
 char *copy_str(char *inStr, short len)
 {
-  char *copy = malloc(len * sizeof(char));
+  char *copy = malloc(len * sizeof(char)+1);
   short i = 0;
   
   for(; i < len; i++)
@@ -96,9 +96,25 @@ int count_letters(char* str)
   return counter;
 }
 
+void print_tokens(char **tokens)
+{
+  int i = 1;
+  //printf("Before while loop in print.\n");
+  //while(*tokens != "/0")
+  //{
+  //printf("Inside while loop in print.\n");
+      printf("[%d]\n", i);
+      printf("%s\n", tokens);
+      //printf("Got here %d times\n", i+1);
+      //puts(*tokens);
+      tokens++;
+      i++;
+      //}
+}
+
 char **tokenize(char* str)
 {
-  char **tokenized_string = malloc(count_words(str)* sizeof(char));
+  char **tokenized_string = malloc((count_words(str)+1) * sizeof(char));
   int i = 1;
   while(*str != '\0')
     {
@@ -111,6 +127,5 @@ char **tokenize(char* str)
       str = word_start(str);
       i++;
     }
-  
   return tokenized_string;
 }
