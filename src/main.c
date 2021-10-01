@@ -16,7 +16,7 @@ int main()
       printf("\n");
       char **tokenized = malloc(MAX_SIZE * sizeof(char*));
       tokenized = tokenize(userInput);
-      //print_tokens(tokenized);
+      print_tokens(tokenized);
       printf("\n");
     }
   printf("Goodbye.\n");

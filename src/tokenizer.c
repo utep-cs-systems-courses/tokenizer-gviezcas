@@ -99,33 +99,32 @@ int count_letters(char* str)
 void print_tokens(char **tokens)
 {
   int i = 1;
-  //printf("Before while loop in print.\n");
-  //while(*tokens != "/0")
-  //{
-  //printf("Inside while loop in print.\n");
-      printf("[%d]\n", i);
-      printf("%s\n", tokens);
-      //printf("Got here %d times\n", i+1);
-      //puts(*tokens);
+  
+  while(*tokens != 0)
+    {
+      printf("[%d]", i);
+      printf("%s\n", *tokens);
       tokens++;
       i++;
-      //}
+    }
 }
 
 char **tokenize(char* str)
 {
   char **tokenized_string = malloc((count_words(str)+1) * sizeof(char));
   int i = 1;
+  char **beginning = malloc((count_words(str)+1) * sizeof(char));
+  beginning = tokenized_string;
   while(*str != '\0')
     {
       str = word_start(str);
       *tokenized_string = copy_str(str, count_letters(str));
       str = word_end(str);
-      printf("[%d]", i);
-      puts(*tokenized_string);
       tokenized_string++;
       str = word_start(str);
       i++;
     }
+  *tokenized_string = 0;
+  tokenized_string = beginning;
   return tokenized_string;
 }
