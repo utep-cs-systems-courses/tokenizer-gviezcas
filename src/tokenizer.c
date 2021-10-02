@@ -99,14 +99,27 @@ int count_letters(char* str)
 void print_tokens(char **tokens)
 {
   int i = 1;
+  char **temp = tokens;
   
-  while(*tokens != 0)
+  while(*temp != 0)
     {
       printf("[%d]", i);
-      printf("%s\n", *tokens);
-      tokens++;
+      printf("%s\n", *temp);
+      temp++;
       i++;
     }
+}
+
+void free_tokens(char **tokens)
+{
+  char **temp = tokens;
+  int i = 0;
+  while(*temp != 0)
+    {
+      free(temp[i]);
+      i++;
+    }
+  free(temp);
 }
 
 char **tokenize(char* str)
